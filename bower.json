@@ -13,9 +13,11 @@
     "test",
     "tests"
   ],
-  "license": "MIT",
   "dependencies": {
     "jquery": "~1.9.1",
     "minimal-bootstrap-grid": "latest"
+  },
+  "devDependencies": {
+    "fotorama": "~4.6.4"
   }
 }
