@@ -8,14 +8,14 @@ var gulp = require('gulp'),
     less = require('gulp-less');
  
 gulp.task('default', function () {
-  gulp.src('css/*.less')
-    .pipe(concat("bundle.less"))
-    .pipe(less("bundle.css"))
+  gulp.src('dev/css/*.less')
+    .pipe(concat("css/main.less"))
+    .pipe(less("css/main.css"))
     .pipe(autoprefixer('> 1%', 'last 5 versions', 'Firefox ESR', 'ie 9'))
     .pipe(minifyCss(""))
     .pipe(gulp.dest('./'));
 });
 
 gulp.task('watch', function () {
-  gulp.watch('css/*.less', ['default'])
+  gulp.watch('dev/css/*.less', ['default'])
 })
