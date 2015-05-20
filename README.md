@@ -1,20 +1,20 @@
 # Fast-start
-Templates and snippets for fast started frontend.
+<h3>Templates and snippets for fast started frontend.</h3>
 
-- BOWER
-- GULP
-- LESS
-- HTML Template
+- <i>BOWER</i>
+- <i>GULP</i>
+- <i>LESS</i>
+- <i>HTML Template</i>
 
-Init Bower:
+<b>Init Bower:</b>
 
-- jQuery 1.9.1
-- Fotorama(responsive, touchable gallery & slideshow)
-- Bootstrap only Grid
+- <i>jQuery 1.9.1</i>
+- <i>Fotorama(responsive, touchable gallery & slideshow)</i>
+- <i>Bootstrap only Grid</i>
 
-Gulp config(watch) & devdep:
+<b>Gulp config(watch) & devdep:</b>
 
-- Concatination
-- Less compilation
-- Autoprefixer
-- Minifier CSS
+- <i>Concatination</i>
+- <i>Less compilation</i>
+- <i>Autoprefixer</i>
+- <i>Minifier CSS</i>
