@@ -39,7 +39,7 @@ gulp.task('images', function () {
 gulp.task('scss', function () {
   return gulp.src(paths.scss)
     .pipe(sass())
-    .pipe(sourcemap())
+    .pipe(sourcemap.write(../dev))
     .pipe(gulp.dest(paths.scss_pub));
 });
 
