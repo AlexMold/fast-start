@@ -1,0 +1,61 @@
+@import 'var.scss';
+
+$width: 100%;
+$gutter: 2%;
+$columns: 12;
+$column_width: $width/$columns;
+$pull: true;
+
+
+.grid{
+  display: inline-block;
+  float: left;
+  padding-left: $gutter/2;
+  padding-right: $gutter/2;
+  @include clearfix;
+}
+
+@for $i from 1 through $columns{
+  .grid_desk_#{$i}{
+    @extend .grid;
+    min-height: 1px;
+    width: $i*$column_width - $gutter;
+  }
+  @if $pull == true {
+    .offset_desk_#{$i}{
+      margin-left: $i * $column_width;
+    }
+  }
+}
+@for $i from 1 through $columns{
+  @include resp-to(tab-scr){
+    .grid_tab_#{$i}{
+      @extend .grid;
+      min-height: 1px;
+      width: $i*$column_width - $gutter;
+    }
+  }
+  @include resp-to(mob-scr){
+    .grid_mob_#{$i}{
+      @extend .grid;
+      min-height: 1px;
+      width: $i*$column_width - $gutter;
+    }
+  }
+}
+
+div{
+  box-sizing: border-box;
+}
+
+.container{
+  width: 1280px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto;
+}
+.row{
+  margin-left: -15px;
+  margin-right: -15px;
+  @include clearfix;
+}

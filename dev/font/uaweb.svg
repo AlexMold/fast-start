@@ -1,0 +1,47 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2015 by original authors @ fontello.com</metadata>
+<defs>
+<font id="fontello" horiz-adv-x="1000" >
+<font-face font-family="fontello" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="arrow-next" unicode="&#xe800;" d="" horiz-adv-x="1200" />
+<glyph glyph-name="option-divider" unicode="&#xe801;" d="" horiz-adv-x="1474" />
+<glyph glyph-name="option-down" unicode="&#xe802;" d="m1071-150l-1071 1000h2143l-1072-1000z" horiz-adv-x="2143" />
+<glyph glyph-name="check" unicode="&#xe803;" d="" horiz-adv-x="1385" />
+<glyph glyph-name="help" unicode="&#xe804;" d="" horiz-adv-x="1000" />
+<glyph glyph-name="option-footer" unicode="&#xe805;" d="" horiz-adv-x="1556" />
+<glyph glyph-name="option-galery" unicode="&#xe806;" d="" horiz-adv-x="1452" />
+<glyph glyph-name="img-delete" unicode="&#xe807;" d="" horiz-adv-x="926" />
+<glyph glyph-name="mg-duplicate" unicode="&#xe808;" d="" horiz-adv-x="926" />
+<glyph glyph-name="img-edit" unicode="&#xe809;" d="" horiz-adv-x="885" />
+<glyph glyph-name="img-finger" unicode="&#xe80a;" d="" horiz-adv-x="889" />
+<glyph glyph-name="img-move" unicode="&#xe80b;" d="" horiz-adv-x="1000" />
+<glyph glyph-name="option" unicode="&#xe80c;" d="" horiz-adv-x="1000" />
+<glyph glyph-name="option-button" unicode="&#xe80d;" d="" horiz-adv-x="1541" />
+<glyph glyph-name="option-button-bold" unicode="&#xe80e;" d="" horiz-adv-x="625" />
+<glyph glyph-name="option-button-center" unicode="&#xe80f;" d="" horiz-adv-x="1000" />
+<glyph glyph-name="option-button-italic" unicode="&#xe810;" d="" horiz-adv-x="750" />
+<glyph glyph-name="option-button-left" unicode="&#xe811;" d="m0 144v118h1000v-118h-1000z m0 706h1000v-118h-1000v118z m706-412h-706v118h706v-118z m0-588h-706v118h706v-118z" horiz-adv-x="1000" />
+<glyph glyph-name="option-button-link" unicode="&#xe812;" d="" horiz-adv-x="1000" />
+<glyph glyph-name="option-button-right" unicode="&#xe813;" d="m294-150v118h706v-118h-706z m-294 412h1000v-118h-1000v118z m294 294h706v-118h-706v118z m-294 294h1000v-118h-1000v118z" horiz-adv-x="1000" />
+<glyph glyph-name="option-button-u" unicode="&#xe814;" d="" horiz-adv-x="722" />
+<glyph glyph-name="option-button-unlink" unicode="&#xe815;" d="" horiz-adv-x="1000" />
+<glyph glyph-name="option-contact" unicode="&#xe816;" d="" horiz-adv-x="1500" />
+<glyph glyph-name="option-counter" unicode="&#xe817;" d="" horiz-adv-x="1703" />
+<glyph glyph-name="option-image" unicode="&#xe818;" d="" horiz-adv-x="1381" />
+<glyph glyph-name="option-image+text" unicode="&#xe819;" d="" horiz-adv-x="1119" />
+<glyph glyph-name="option-lock" unicode="&#xe81a;" d="" horiz-adv-x="867" />
+<glyph glyph-name="option-map" unicode="&#xe81b;" d="" horiz-adv-x="1000" />
+<glyph glyph-name="option-menu" unicode="&#xe81c;" d="" horiz-adv-x="1226" />
+<glyph glyph-name="option-soc-like" unicode="&#xe81d;" d="" horiz-adv-x="1114" />
+<glyph glyph-name="option-soc-share" unicode="&#xe81e;" d="" horiz-adv-x="1136" />
+<glyph glyph-name="option-text" unicode="&#xe81f;" d="" horiz-adv-x="1514" />
+<glyph glyph-name="option-text-bckgd" unicode="&#xe820;" d="" horiz-adv-x="1474" />
+<glyph glyph-name="option-video" unicode="&#xe821;" d="" horiz-adv-x="1357" />
+<glyph glyph-name="placeholder" unicode="&#xe822;" d="" horiz-adv-x="1258" />
+<glyph glyph-name="play" unicode="&#xe823;" d="m761 373l-420-239v477l420-238z" horiz-adv-x="1000" />
+</font>
+</defs>
+</svg>

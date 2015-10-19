@@ -3,7 +3,7 @@
 
 - <i>BOWER</i>
 - <i>GULP</i>
-- <i>LESS</i>
+- <i>SCSS</i>
 - <i>HTML Template</i>
 
 <b>Init Bower:</b>
@@ -14,7 +14,8 @@
 
 <b>Gulp config(watch) & devdep:</b>
 
-- <i>Concatination</i>
-- <i>Less compilation</i>
-- <i>Autoprefixer</i>
-- <i>Minifier CSS</i>
+- <i>Scripts uglify</i>
+- <i>Images minification</i>
+- <i>Write sourcemaps for SCSS</i>
+- <i>Compilation SCSS</i>
+- <i>Concatination CSS in dev/ and put in public/ </i>

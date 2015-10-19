@@ -3,21 +3,22 @@
 var gulp = require('gulp');
 
 var sass       = require('gulp-sass');
-var autoprefix = require('autoprefixer');
-var imagemin   = require('imagemin');
+var autoprefix = require('gulp-autoprefixer');
+var imagemin   = require('gulp-imagemin');
 var minifycss  = require('gulp-minify-css');
 var sourcemap  = require('gulp-sourcemaps');
 var uglify     = require('gulp-uglify');
 var rename     = require('gulp-rename');
+var concatcss  = require('gulp-concat-css');
 
 
 var paths = {
   scripts: 'dev/js/*.js',
-  images: 'dev/images/*',
-  scss: 'dev/scss/main.scss',
+  images: 'dev/images/**',
+  scss: 'dev/scss/*.scss',
   scripts_pub: 'public/js/*.js',
-  images_pub: 'public/images/*',
-  scss_pub: 'public/css/main.css'
+  images_pub: 'public/images/',
+  scss_pub: 'public/css/'
 };
 
 gulp.task('scripts', function () {
@@ -38,29 +39,36 @@ gulp.task('images', function () {
 
 gulp.task('scss', function () {
   return gulp.src(paths.scss)
+    .pipe(sourcemap.init())
     .pipe(sass())
-    .pipe(sourcemap.write(../dev))
+    .pipe(sourcemap.write('../map'))
+    .pipe(gulp.dest('dev/css/'));
+});
+
+gulp.task('concat', function () {
+  return gulp.src('dev/css/*.css')
+    .pipe(concatcss("main.css"))
     .pipe(gulp.dest(paths.scss_pub));
 });
 
-
 // Rerun the task when a file changes
 gulp.task('watch', function () {
-  gulp.watch(paths.scripts_pub, ['scripts']);
-  gulp.watch(paths.images_pub, ['images']);
-  gulp.watch(paths.scss_pub, ['scss']);
+  gulp.watch(paths.scripts, ['scripts']);
+  gulp.watch(paths.images, ['images']);
+  gulp.watch(paths.scss, ['scss']);
+  gulp.watch('dev/css/*.css', ['concat']);
 });
 
 gulp.task('production', function () {
-  gulp.src(paths.scss_pub)
+  gulp.src('public/css/main.css')
     .pipe(autoprefix())
     .pipe(rename({
-      dirname: "public/css/",
+      dirname: "/",
       suffix: ".min"
     }))
-    .pipe(minifyCSS())
+    .pipe(minifycss())
     .pipe(gulp.dest(paths.scss_pub));
 });
 
 // The default task (called when you run `gulp` from cli)
-gulp.task('default', ['scripts', 'images', 'scss']);
+gulp.task('default', ['scripts', 'images', 'scss', 'concat']);
