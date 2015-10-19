@@ -1,1 +1,9 @@
 @import 'var.scss';
+
+body{
+	@include font(uaweb, light-italic);
+}
+.button{
+	@include button(20px, 200px, black);
+	@include font(uaweb, bold);
+}

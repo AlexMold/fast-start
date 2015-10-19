@@ -97,7 +97,7 @@
     min-height: 1px;
     width: 6.33333%; } }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 480px) {
   .grid_mob_1 {
     min-height: 1px;
     width: 6.33333%; } }
@@ -107,7 +107,7 @@
     min-height: 1px;
     width: 14.66667%; } }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 480px) {
   .grid_mob_2 {
     min-height: 1px;
     width: 14.66667%; } }
@@ -117,7 +117,7 @@
     min-height: 1px;
     width: 23%; } }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 480px) {
   .grid_mob_3 {
     min-height: 1px;
     width: 23%; } }
@@ -127,7 +127,7 @@
     min-height: 1px;
     width: 31.33333%; } }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 480px) {
   .grid_mob_4 {
     min-height: 1px;
     width: 31.33333%; } }
@@ -137,7 +137,7 @@
     min-height: 1px;
     width: 39.66667%; } }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 480px) {
   .grid_mob_5 {
     min-height: 1px;
     width: 39.66667%; } }
@@ -147,7 +147,7 @@
     min-height: 1px;
     width: 48%; } }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 480px) {
   .grid_mob_6 {
     min-height: 1px;
     width: 48%; } }
@@ -157,7 +157,7 @@
     min-height: 1px;
     width: 56.33333%; } }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 480px) {
   .grid_mob_7 {
     min-height: 1px;
     width: 56.33333%; } }
@@ -167,7 +167,7 @@
     min-height: 1px;
     width: 64.66667%; } }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 480px) {
   .grid_mob_8 {
     min-height: 1px;
     width: 64.66667%; } }
@@ -177,7 +177,7 @@
     min-height: 1px;
     width: 73%; } }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 480px) {
   .grid_mob_9 {
     min-height: 1px;
     width: 73%; } }
@@ -187,7 +187,7 @@
     min-height: 1px;
     width: 81.33333%; } }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 480px) {
   .grid_mob_10 {
     min-height: 1px;
     width: 81.33333%; } }
@@ -197,7 +197,7 @@
     min-height: 1px;
     width: 89.66667%; } }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 480px) {
   .grid_mob_11 {
     min-height: 1px;
     width: 89.66667%; } }
@@ -207,7 +207,7 @@
     min-height: 1px;
     width: 98%; } }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 480px) {
   .grid_mob_12 {
     min-height: 1px;
     width: 98%; } }
