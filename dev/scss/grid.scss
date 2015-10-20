@@ -2,7 +2,7 @@
 
 
 $width: 100%;
-$gutter: 2%;
+$gutter: 30px;
 $columns: 12;
 $column_width: $width/$columns;
 $pull: true;
@@ -20,7 +20,7 @@ $pull: true;
   .grid_desk_#{$i}{
     @extend .grid;
     min-height: 1px;
-    width: $i*$column_width - $gutter;
+    width: $i*$column_width;
   }
   @if $pull == true {
     .offset_desk_#{$i}{
@@ -33,14 +33,14 @@ $pull: true;
     .grid_tab_#{$i}{
       @extend .grid;
       min-height: 1px;
-      width: $i*$column_width - $gutter;
+      width: $i*$column_width;
     }
   }
   @include resp-to(mob-scr){
     .grid_mob_#{$i}{
       @extend .grid;
       min-height: 1px;
-      width: $i*$column_width - $gutter;
+      width: $i*$column_width;
     }
   }
 }

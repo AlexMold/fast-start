@@ -5,7 +5,7 @@ var gulp = require('gulp');
 var sass       = require('gulp-sass');
 var autoprefix = require('gulp-autoprefixer');
 var imagemin   = require('gulp-imagemin');
-var minifycss  = require('gulp-minify-css');
+var minifycss  = require('gulp-csso');
 var sourcemap  = require('gulp-sourcemaps');
 var uglify     = require('gulp-uglify');
 var rename     = require('gulp-rename');
@@ -16,7 +16,7 @@ var paths = {
   scripts: 'dev/js/*.js',
   images: 'dev/images/**',
   scss: 'dev/scss/*.scss',
-  scripts_pub: 'public/js/*.js',
+  scripts_pub: 'public/js/',
   images_pub: 'public/images/',
   scss_pub: 'public/css/'
 };
