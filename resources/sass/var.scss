@@ -1,0 +1,169 @@
+
+// Text color
+$text-main: #383d48;
+$text-plain: #7e7e7e;
+
+// Main Background
+$back-black: #393939;
+$back-blue: #0d91ea;
+$back-form: #373737;
+$back-foot: #282828;
+
+// Border color
+$border-separator: #eeeeee;
+
+
+@mixin font($family, $size, $weight){
+  font: {
+    family: $family;
+    size: $size;
+    weight: $weight;
+  }
+}
+
+@mixin transit($speed: .3s){
+  -webkit-transition: all $speed ease;
+  -moz-transition: all $speed ease;
+  -o-transition: all $speed ease;
+  transition: all $speed ease;
+}
+@mixin clearfix{
+  &:after,
+  &:before{
+    display: table;
+    content: " ";
+    clear: both;
+  }
+}
+
+$mobile: 480px;
+$tablet: 768px;
+$tablet-land: 992px;
+$desktop: 1170px;
+$wide_desktop: 1400px;
+
+@mixin resp-to($media){
+  @if $media == mob-scr {
+    @media only screen and (max-width: $tablet - 1) { @content; }
+  }
+  @else if $media == tabland-scr {
+    @media only screen and (max-width: $tablet-land) { @content; }
+  }
+  @else if $media == tab-scr {
+    @media only screen and (max-width: $desktop - 1) { @content; }
+  }
+  @else if $media == desk-scr {
+    @media only screen and (min-width: $desktop) { @content; }
+  }
+  @else if $media == desk-scr-low {
+    @media only screen and (max-width: $desktop) { @content; }
+  }
+}
+
+// Font Part mixin
+
+// $font-stack:
+//   (group: uaweb, id: light, font: ('Brandon Grot W01 Light', san-serif ), weight: 200, style: normal),
+//   (group: uaweb, id: light-italic, font: ('Brandon Grot W01 Light', san-serif ), weight: 200, style: italic),
+//   (group: uaweb, id: regular, font: ('Brandon Grot W01-Regular', san-serif), weight: 400, style: normal),
+//   (group: uaweb, id: regular-italic, font: ('Brandon Grot W01-Regular', san-serif), weight: 400, style: italic),
+//   (group: uaweb, id: bold, font: ('Brandon Grot W01 Black', san-serif), weight: 700, style: normal),
+//   (group: uaweb, id: bold-italic, font: ('Brandon Grot W01-Regular', san-serif), weight: 400, style: italic),
+//   (group: clarendon, id: regular, font: ('Clarendon LT W01', serif), weight: 200, style: normal),
+//   (group: code, id: regular, font: (monospace), weight: 400, style: normal);
+
+// Breakpoint Mixin
+// @mixin font($group, $id:regular){
+//   @each $font in $font-stack{
+//     @if($group == map-get($font, group) and $id == map-get($font, id)){
+//       font-family: map-get($font, font);
+//       font-weight: map-get($font, weight);
+//       font-style: map-get($font, style);
+//     }
+//   }
+// }
+
+@mixin button($height-but, $width-but, $color-but, $back-color){
+  box-sizing: border-box;
+  height: $height-but;
+  line-height: $height-but;
+  width: $width-but;
+  color: $color-but;
+  background: $back-color;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  &:hover{
+    background: darken($back-color, 10%);
+  }
+  &:active{
+    box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+  }
+}
+
+// // Bootstrap Starter Template Styles
+// $rem-baseline: 10px !default;
+// $rem-fallback: true !default;
+// $rem-px-only: false !default;
+
+// // list-separator polyfill by Hugo Giraudel (https://sass-compatibility.github.io/#list_separator_function)
+// @function rem-separator($list) {
+//   @if function-exists("list-separator") == true {
+//     @return list-separator($list);
+//   }
+
+//   $test-list: ();
+//   @each $item in $list {
+//     $test-list: append($test-list, $item, space);
+//   }
+
+//   @return if($test-list == $list, space, comma);
+// }
+
+// @mixin rem-baseline($zoom: 100%) {
+//   font-size: $zoom / 16px * $rem-baseline;
+// }
+
+// @function rem-convert($to, $values...) {
+//   $result: ();
+//   $separator: rem-separator($values);
+
+//   @each $value in $values {
+//     @if type-of($value) == "number" and unit($value) == "rem" and $to == "px" {
+//       $result: append($result, $value / 1rem * $rem-baseline, $separator);
+//     } @else if type-of($value) == "number" and unit($value) == "px" and $to == "rem" {
+//       $result: append($result, $value / ($rem-baseline / 1rem), $separator);
+//     } @else if type-of($value) == "list" {
+//       $result: append($result, rem-convert($to, $value...), $separator);
+//     } @else {
+//       $result: append($result, $value, $separator);
+//     }
+//   }
+
+//   @return if(length($result) == 1, nth($result, 1), $result);
+// }
+
+// @function rem($values...) {
+//   @if $rem-px-only {
+//     @return rem-convert(px, $values...);
+//   } @else {
+//     @return rem-convert(rem, $values...);
+//   }
+// }
+
+// @mixin rem($properties, $values...) {
+//   @if type-of($properties) == "map" {
+//     @each $property in map-keys($properties) {
+//       @include rem($property, map-get($properties, $property));
+//     }
+//   } @else {
+//     @each $property in $properties {
+//       @if $rem-fallback or $rem-px-only {
+//         #{$property}: rem-convert(px, $values...);
+//       }
+//       @if not $rem-px-only {
+//         #{$property}: rem-convert(rem, $values...);
+//       }
+//     }
+//   }
+// }

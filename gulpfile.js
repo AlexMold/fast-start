@@ -1,74 +1,163 @@
+// Need to simplify runner =)
 'use strict';
 
-var gulp = require('gulp');
+// Module except unclear errors
+require('clarify');
 
-var sass       = require('gulp-sass');
-var autoprefix = require('gulp-autoprefixer');
-var imagemin   = require('gulp-imagemin');
-var minifycss  = require('gulp-csso');
-var sourcemap  = require('gulp-sourcemaps');
-var uglify     = require('gulp-uglify');
-var rename     = require('gulp-rename');
-var concatcss  = require('gulp-concat-css');
+// Low level File work
+const fs          = require("fs");
+
+// Gulp modules
+const gulp        = require('gulp'),
+      sass        = require('gulp-sass'),
+      notify      = require("gulp-notify"),
+      autoprefix  = require('gulp-autoprefixer'),
+      imageop     = require('gulp-image-optimization'),
+      concat      = require('gulp-concat'),
+      server      = require('gulp-server-livereload');
+
+// PostCSS and plugins
+const postcss         = require('gulp-postcss'),
+      pxtorem         = require('postcss-pxtorem'),
+      csspropsort     = require('css-property-sorter'),
+      cssgrace        = require('cssgrace'),
+      autoprefixer    = require('autoprefixer'),
+      classPrfx       = require('postcss-class-prefix'),
+      cssstats        = require('postcss-cssstats'),
+      stylelint       = require('gulp-stylelint');
+      //slf             = require('stylelint-formatter');
 
 
-var paths = {
-  scripts: 'dev/js/*.js',
-  images: 'dev/images/**',
-  scss: 'dev/scss/*.scss',
-  scripts_pub: 'public/js/',
-  images_pub: 'public/images/',
-  scss_pub: 'public/css/'
-};
 
-gulp.task('scripts', function () {
-  return gulp.src(paths.scripts)
-    .pipe(uglify())
-    .pipe(gulp.dest(paths.scripts_pub));
+
+// Config's
+let config = {
+    sassPath: './resources/sass',
+    cssPath: './public/css/'
+}
+let plugins = {
+    path: ['./public/lib/',
+            './public/lib/']
+}
+let styleConfig = {
+  "rules": {
+    "block-no-empty": true,
+    "color-no-invalid-hex": true,
+    "declaration-colon-space-after": "always",
+    "declaration-colon-space-before": "never",
+    "function-comma-space-after": "always",
+    "function-url-quotes": "double",
+    "media-feature-colon-space-after": "always",
+    "media-feature-colon-space-before": "never",
+    "media-feature-name-no-vendor-prefix": true,
+    "max-empty-lines": 5,
+    "number-leading-zero": "never",
+    "number-no-trailing-zeros": true
+  }
+}
+let processors = [
+    pxtorem({
+        rootValue: 16,
+        unitPrecision: 5,
+        propWhiteList: ['font', 'font-size', 'line-height', 'letter-spacing', 'height'],
+        selectorBlackList: [],
+        replace: false,
+        mediaQuery: false,
+        minPixelValue: 0
+    }),
+    autoprefixer,
+    //csspropsort({order: 'smacss'}),
+    cssgrace
+    //classPrfx('yo.')
+];
+
+
+
+
+gulp.task('cssstats', function() {
+  return gulp
+    .src(`${config.cssPath}style.css`)
+    .pipe(
+      stylelint({
+        failAfterError: true,
+        reportOutputDir: 'logs/lint/',
+        reporters: [
+          {formatter: '.scss-lint.yml', save: 'my-custom-report.txt'}
+        ],
+        debug: true
+      })
+    )
+    .pipe(
+    postcss([
+      cssstats((stats) => {
+        let str = JSON.stringify(stats, "", 2);
+        fs.writeFile(`${__dirname}/logs/statMessage.txt`, str, (err) => {
+          if (err) throw err;
+          console.log('It\'s saved!');
+        });
+        }
+      )
+    ])
+  );
 });
 
-// Copy all static images
-gulp.task('images', function () {
-  return gulp.src(paths.images)
-    // Pass in options to the task
-    .pipe(imagemin({
-      optimizationLevel: 5
-    }))
-    .pipe(gulp.dest(paths.images_pub));
+
+// Tasks
+
+gulp.task('scripts', () => {
+  return gulp.src(plugins.path)
+    .pipe(concat('plugin.js'))
+    .pipe(gulp.dest('./public/js/'));
 });
 
-gulp.task('scss', function () {
-  return gulp.src(paths.scss)
-    .pipe(sourcemap.init())
-    .pipe(sass())
-    .pipe(sourcemap.write('../map'))
-    .pipe(gulp.dest('dev/css/'));
+gulp.task('images', (cb) => {
+    gulp.src(['resources/**/*.png','resources/**/*.jpg','resources/**/*.gif','resources/**/*.jpeg'])
+    .pipe(imageop({
+        optimizationLevel: 5,
+        progressive: true,
+        interlaced: true
+    })).pipe(gulp.dest('public')).on('end', cb).on('error', cb);
 });
 
-gulp.task('concat', function () {
-  return gulp.src('dev/css/*.css')
-    .pipe(concatcss("main.css"))
-    .pipe(gulp.dest(paths.scss_pub));
+gulp.task('copy:font', () => {
+     return gulp.src('./resources/fonts/*')
+         .pipe(gulp.dest('./public/fonts'));
 });
+
+gulp.task('css', () => {
+    return gulp.src(config.sassPath + '/style.scss')
+        .pipe(
+          sass()
+            .on("error", notify.onError((error) => {
+                return `Error: ${error.message}`;
+            }))
+        )
+        .pipe(postcss(processors))
+        .pipe(gulp.dest('./public/css'));
+});
+
+gulp.task('analize', () => {
+
+})
+
+// Server for reload
+gulp.task('webserver', () => {
+  gulp.src('.')
+    .pipe(server({
+      livereload: {
+        enable: true
+      },
+      directoryListing: true,
+      open: true
+    }));
+});
+
 
 // Rerun the task when a file changes
-gulp.task('watch', function () {
-  gulp.watch(paths.scripts, ['scripts']);
-  gulp.watch(paths.images, ['images']);
-  gulp.watch(paths.scss, ['scss']);
-  gulp.watch('dev/css/*.css', ['concat']);
+// But at first launch server
+gulp.task('watch', () => {
+    gulp.watch(`${config.sassPath}/**/*.scss`, ['css']);
+    gulp.watch(`plugin.path`, ['scripts']);
 });
 
-gulp.task('production', function () {
-  gulp.src('public/css/main.css')
-    .pipe(autoprefix())
-    .pipe(rename({
-      dirname: "/",
-      suffix: ".min"
-    }))
-    .pipe(minifycss())
-    .pipe(gulp.dest(paths.scss_pub));
-});
-
-// The default task (called when you run `gulp` from cli)
-gulp.task('default', ['scripts', 'images', 'scss', 'concat']);
+gulp.task('default', ['icons', 'css', 'images']);

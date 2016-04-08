@@ -1,0 +1,27 @@
+@import "var.scss";
+
+
+button,
+a,
+input,
+textarea{
+  @include transit;
+}
+a {
+  outline: none !important;
+  text-decoration: none;
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    @include transit;
+  }
+}
+b {
+  font-weight: 700;
+}
+
+.reset-lists {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}

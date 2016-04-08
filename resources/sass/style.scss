@@ -1,0 +1,44 @@
+// Import custom styles and fontawesome
+@import "var.scss";
+@import "fontawesome.min.scss";
+@import "font.scss";
+@import "slider.scss";
+@import "reset.scss";
+@import "typography.scss";
+@import "icons.scss";
+@import "buttons.scss";
+@import "footer.scss";
+@import "form.scss";
+@import "table.scss";
+@import "header.scss";
+
+html {
+  font-size: 16px;
+  color: $text-plain;
+  @include resp-to(desk-scr-low) {
+    font-size: 14px;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+.ta-c {
+  text-align: center;
+}
+
+.ta-r {
+  text-align: right;
+}
+
+.fl-l {
+  float: left;
+}
+
+.fl-r {
+  float: right;
+}
+
+.clearfix {
+  @include clearfix;
+}

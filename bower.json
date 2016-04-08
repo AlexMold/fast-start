@@ -1,6 +1,6 @@
 {
   "name": "Fast-start",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "homepage": "https://github.com/AlexMold/fast-start",
   "authors": [
     "AlexMold <mangol72@gmail.com>"
@@ -15,10 +15,10 @@
     "/"
   ],
   "dependencies": {
-    "jquery": "~1.9.1",
-    "minimal-bootstrap-grid": "latest"
+    "owl.carousel": "OwlCarousel2#^2.0.0-beta.3"
   },
-  "devDependencies": {
-    "fotorama": "~4.6.4"
-  }
+  "devDependencies": {},
+  "description": "",
+  "main": "",
+  "moduleType": []
 }
